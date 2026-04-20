@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ML Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="entry-preloader" id="entry-preloader" aria-live="polite">
+      <p class="entry-preloader__label">Loading portfolio experience</p>
+    </div>
+
+    <header class="hero-premium" id="hero">
+      <div class="hero-premium__bg" aria-hidden="true">
+        <span class="hero-premium__orb hero-premium__orb--a"></span>
+        <span class="hero-premium__orb hero-premium__orb--b"></span>
+        <span class="hero-premium__grain"></span>
+      </div>
+      <div class="hero-premium__content">
+        <p class="eyebrow">ML Portfolio</p>
+        <h1 class="hero-premium__title">
+          <span class="hero-word">Building</span>
+          <span class="hero-word">machine</span>
+          <span class="hero-word">learning</span>
+          <span class="hero-word">systems</span>
+          <span class="hero-word">that</span>
+          <span class="hero-word">ship.</span>
+        </h1>
+        <p class="subtitle">
+          I design practical ML products with clear evaluation, reliable
+          deployment, and measurable outcomes.
+        </p>
+        <div class="hero-premium__actions">
+          <button
+            type="button"
+            class="hero-premium__button"
+            data-scroll-target="projects-section"
+          >
+            Explore projects
+          </button>
+          <button
+            type="button"
+            class="hero-premium__button hero-premium__button--ghost"
+            data-scroll-target="skills-section"
+          >
+            View skills
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="page-layout">
+      <aside class="sidebar" aria-label="Section selector">
+        <nav class="sidebar-nav">
+          <a class="chapter-link is-active" data-level="main" data-target="skills-section" href="#skills-section">Skills</a>
+          <a class="chapter-link chapter-link--sub" data-level="sub" data-target="skills-overview-subsection" href="#skills-overview-subsection">Overview</a>
+
+          <a class="chapter-link" data-level="main" data-target="projects-section" href="#projects-section">Projects</a>
+          <a class="chapter-link chapter-link--sub" data-level="sub" data-target="featured-projects-subsection" href="#featured-projects-subsection">Featured</a>
+
+          <a class="chapter-link" data-level="main" data-target="ml-experience-section" href="#ml-experience-section">ML Experience</a>
+          <a class="chapter-link chapter-link--sub" data-level="sub" data-target="experience-deployment" href="#experience-deployment">Deployment</a>
+          <a class="chapter-link chapter-link--sub" data-level="sub" data-target="experience-evaluation" href="#experience-evaluation">Evaluation</a>
+          <a class="chapter-link chapter-link--sub" data-level="sub" data-target="experience-data-centric" href="#experience-data-centric">Data-Centric</a>
+
+          <a class="chapter-link" data-level="main" data-target="history-section" href="#history-section">History</a>
+          <a class="chapter-link chapter-link--sub" data-level="sub" data-target="history-2026" href="#history-2026">2026</a>
+          <a class="chapter-link chapter-link--sub" data-level="sub" data-target="history-2025" href="#history-2025">2025</a>
+          <a class="chapter-link chapter-link--sub" data-level="sub" data-target="history-2024" href="#history-2024">2024</a>
+        </nav>
+      </aside>
+
+      <main class="container">
+      <section class="panel section-block" id="skills-section" data-section data-nav-node>
+        <h2>Skills</h2>
+        <h3 id="skills-overview-subsection" class="section-subheading" data-nav-node>Overview</h3>
+        <div class="skills" id="skills-list"></div>
+      </section>
+
+      <section class="panel section-block" id="projects-section" data-section data-nav-node>
+        <div class="projects-section-header">
+          <h2>Projects</h2>
+          <h3 id="featured-projects-subsection" class="section-subheading" data-nav-node>Featured Projects</h3>
+        </div>
+        <div class="project-grid" id="project-grid"></div>
+      </section>
+
+      <section class="panel section-block" id="ml-experience-section" data-section data-nav-node>
+        <h2>ML Experience</h2>
+        <div class="experience-list">
+          <article id="experience-deployment" data-nav-node>
+            <h3>Production Model Deployment</h3>
+            <p>
+              Built and deployed ML APIs with versioned model rollouts, health checks, and monitoring.
+            </p>
+          </article>
+          <article id="experience-evaluation" data-nav-node>
+            <h3>Experimentation and Evaluation</h3>
+            <p>
+              Ran controlled experiments with offline/online metrics to select robust models.
+            </p>
+          </article>
+          <article id="experience-data-centric" data-nav-node>
+            <h3>Data-Centric Improvement</h3>
+            <p>
+              Improved model quality through feature engineering, labeling strategy, and drift analysis.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel section-block" id="history-section" data-section data-nav-node>
+        <h2>History</h2>
+        <div class="history-list">
+          <article id="history-2026" data-nav-node>
+            <h3>2026 — Advanced ML Portfolio</h3>
+            <p>Expanded into end-to-end ML products with monitoring and deployment workflows.</p>
+          </article>
+          <article id="history-2025" data-nav-node>
+            <h3>2025 — Applied NLP and Vision</h3>
+            <p>Delivered practical text and image models focused on measurable business outcomes.</p>
+          </article>
+          <article id="history-2024" data-nav-node>
+            <h3>2024 — Foundation Phase</h3>
+            <p>Built core ML/statistics fundamentals and project-based engineering discipline.</p>
+          </article>
+        </div>
+      </section>
+      </main>
+    </div>
+
+    <div
+      class="modal-overlay"
+      id="featured-project-modal"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="featured-project-title"
+    >
+      <div class="modal-card">
+        <div class="modal-header">
+          <h2 id="featured-project-title">Project details</h2>
+          <button
+            type="button"
+            class="icon-button"
+            id="close-featured-project"
+            aria-label="Close project details"
+          >
+            ✕
+          </button>
+        </div>
+        <p class="modal-copy" id="featured-project-copy"></p>
+        <div id="featured-project-images" class="featured-project-images"></div>
+      </div>
+    </div>
+
+    <div
+      class="modal-overlay"
+      id="other-projects-modal"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="other-projects-title"
+    >
+      <div class="modal-card">
+        <div class="modal-header">
+          <h2 id="other-projects-title">Other ML Projects</h2>
+          <button
+            type="button"
+            class="icon-button"
+            id="close-other-projects"
+            aria-label="Close project gallery"
+          >
+            ✕
+          </button>
+        </div>
+        <p class="modal-copy">
+          A broader set of projects with visuals, short summaries, and direct
+          links.
+        </p>
+        <div id="other-projects-list" class="other-projects-list"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

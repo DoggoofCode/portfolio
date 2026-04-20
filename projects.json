@@ -1,0 +1,131 @@
+{
+  "skills": [
+    {
+      "name": "Python",
+      "summary": "Primary language for model development, data preparation, and API integration. I use typed, modular code to keep ML workflows maintainable."
+    },
+    {
+      "name": "PyTorch",
+      "summary": "Used for building and fine-tuning deep learning models with flexible training loops. I rely on it for rapid experimentation and production-ready checkpointing."
+    },
+    {
+      "name": "TensorFlow",
+      "summary": "Applied for scalable training and model serving pipelines where ecosystem tooling is important. I use it for structured deployment workflows and reproducibility."
+    },
+    {
+      "name": "Scikit-Learn",
+      "summary": "Go-to toolkit for classical ML, feature engineering, and baseline evaluation. I use clear validation protocols to compare models before deep learning escalation."
+    },
+    {
+      "name": "MLOps",
+      "summary": "Designs include model versioning, automated retraining, and performance monitoring. I focus on reliable delivery with clear rollback and observability."
+    },
+    {
+      "name": "Docker",
+      "summary": "Packages ML services into consistent, reproducible runtime environments. I use containerized workflows to reduce deployment drift across environments."
+    },
+    {
+      "name": "FastAPI",
+      "summary": "Builds low-latency model inference APIs with validation and documentation. I use it to expose predictions cleanly to product and analytics teams."
+    },
+    {
+      "name": "SQL",
+      "summary": "Used for feature extraction, model analysis, and reporting pipelines. I write performant queries to connect raw data with ML decision layers."
+    }
+  ],
+  "featuredProjects": [
+    {
+      "title": "Demand Forecasting Engine",
+      "description": "Time-series forecasting pipeline improving monthly inventory planning with automated retraining.",
+      "linkLabel": "View details",
+      "mainImage": "https://picsum.photos/seed/forecasting-cover/1800/1100",
+      "details": [
+        "Built a demand forecasting workflow with calendar features and event-aware seasonality handling.",
+        "Automated retraining and backtesting improved forecast stability and reduced stock-out risk."
+      ],
+      "images": [
+        "https://picsum.photos/seed/forecasting-main/1200/700",
+        "https://picsum.photos/seed/forecasting-chart/800/500"
+      ]
+    },
+    {
+      "title": "Resume Ranker for Hiring",
+      "description": "NLP system that scores candidate resumes against role requirements with explainable criteria.",
+      "linkLabel": "View details",
+      "mainImage": "https://picsum.photos/seed/resume-cover/1800/1100",
+      "details": [
+        "Used embedding similarity and keyword evidence to score role-resume alignment transparently.",
+        "Added recruiter-facing explanations to improve trust and reduce manual screening time."
+      ],
+      "images": [
+        "https://picsum.photos/seed/resume-ranker-main/1200/700",
+        "https://picsum.photos/seed/resume-ranker-panel/800/500"
+      ]
+    },
+    {
+      "title": "Medical Image Classifier",
+      "description": "CNN-based diagnostic support prototype with calibrated confidence and robust preprocessing.",
+      "linkLabel": "View details",
+      "mainImage": "https://picsum.photos/seed/medical-cover/1800/1100",
+      "details": [
+        "Implemented augmentation and calibration to improve confidence quality in edge clinical samples.",
+        "Added evaluation slices across classes to diagnose model weaknesses before deployment."
+      ],
+      "images": [
+        "https://picsum.photos/seed/medical-main/1200/700",
+        "https://picsum.photos/seed/medical-grid/800/500"
+      ]
+    },
+    {
+      "title": "Customer Churn Predictor",
+      "description": "End-to-end binary classification workflow with feature store, model monitoring, and dashboarding.",
+      "linkLabel": "View details",
+      "mainImage": "https://picsum.photos/seed/churn-cover/1800/1100",
+      "details": [
+        "Delivered a churn prediction service with feature lineage, threshold tuning, and business-aligned alerts.",
+        "Monitoring tracked drift and precision decay to trigger retraining before major performance loss."
+      ],
+      "images": [
+        "https://picsum.photos/seed/churn-main/1200/700",
+        "https://picsum.photos/seed/churn-dashboard/800/500"
+      ]
+    }
+  ],
+  "otherProjectsCard": {
+    "title": "All Other Projects",
+    "description": "Explore additional experiments, prototypes, and production-ready ML builds.",
+    "buttonLabel": "Open project gallery",
+    "modalTitle": "Other ML Projects",
+    "modalDescription": "A broader set of projects with visuals, short summaries, and direct links."
+  },
+  "otherProjects": [
+    {
+      "title": "Fraud Detection Pipeline",
+      "description": "Streaming anomaly detection with online model updates and drift alerts.",
+      "image": "https://picsum.photos/seed/fraud-ml/800/500",
+      "link": "#",
+      "linkLabel": "View project"
+    },
+    {
+      "title": "Document Intelligence OCR",
+      "description": "Layout-aware extraction for invoices and contracts with confidence scoring.",
+      "image": "https://picsum.photos/seed/doc-ai/800/500",
+      "link": "#",
+      "linkLabel": "View project"
+    },
+    {
+      "title": "Recommendation API",
+      "description": "Hybrid recommendation engine combining collaborative and content signals.",
+      "image": "https://picsum.photos/seed/reco-api/800/500",
+      "link": "#",
+      "linkLabel": "View project"
+    },
+    {
+      "title": "MLOps Monitoring Stack",
+      "description": "Automated health metrics, data quality checks, and incident notifications.",
+      "image": "https://picsum.photos/seed/mlops-stack/800/500",
+      "link": "#",
+      "linkLabel": "View project"
+    }
+  ]
+}
