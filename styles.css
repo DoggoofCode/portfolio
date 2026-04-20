@@ -97,15 +97,6 @@ body {
   left: -8%;
 }
 
-.hero-premium__grain {
-  position: absolute;
-  inset: 0;
-  opacity: 0.03;
-  mix-blend-mode: multiply;
-  background-image: radial-gradient(#000 0.5px, transparent 0.5px);
-  background-size: 3px 3px;
-}
-
 .hero-premium__content {
   position: relative;
   z-index: 1;

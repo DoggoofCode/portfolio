@@ -519,7 +519,7 @@ function setupSectionReveals() {
 }
 
 function setupHeroParallax() {
-  if (!hero || !heroContent || !heroOrbA || !heroOrbB) {
+  if (!hero || !heroContent) {
     return;
   }
 
@@ -541,8 +541,12 @@ function setupHeroParallax() {
     );
 
     heroContent.style.transform = `translate3d(0, ${progress * -20}px, 0)`;
-    heroOrbA.style.transform = `translate3d(${progress * 20}px, ${progress * 28}px, 0)`;
-    heroOrbB.style.transform = `translate3d(${progress * -16}px, ${progress * -18}px, 0)`;
+    if (heroOrbA) {
+      heroOrbA.style.transform = `translate3d(${progress * 20}px, ${progress * 28}px, 0)`;
+    }
+    if (heroOrbB) {
+      heroOrbB.style.transform = `translate3d(${progress * -16}px, ${progress * -18}px, 0)`;
+    }
   }
 
   window.addEventListener(
