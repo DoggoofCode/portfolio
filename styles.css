@@ -682,6 +682,27 @@ h2 {
   color: var(--muted);
 }
 
+.notice-modal__actions {
+  margin-top: 1rem;
+}
+
+.notice-modal__button {
+  border: 1px solid #111;
+  color: #fff;
+  background: #111;
+  border-radius: 10px;
+  padding: 0.55rem 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.notice-modal__button:hover,
+.notice-modal__button:focus-visible {
+  background: #000;
+  border-color: #000;
+  outline: none;
+}
+
 .icon-button {
   border: 1px solid #111;
   color: #fff;

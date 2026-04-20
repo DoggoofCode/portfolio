@@ -179,6 +179,35 @@
       </div>
     </div>
 
+    <div
+      class="modal-overlay"
+      id="integrity-notice-modal"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="integrity-notice-title"
+    >
+      <div class="modal-card">
+        <div class="modal-header">
+          <h2 id="integrity-notice-title">Notice</h2>
+          <button
+            type="button"
+            class="icon-button"
+            id="close-integrity-notice"
+            aria-label="Close notice"
+          >
+            ✕
+          </button>
+        </div>
+        <p class="modal-copy" id="integrity-notice-copy"></p>
+        <div class="notice-modal__actions">
+          <button type="button" id="acknowledge-integrity-notice" class="notice-modal__button">
+            I understand
+          </button>
+        </div>
+      </div>
+    </div>
+
     <script type="module" src="sphere-background.js"></script>
     <script src="script.js"></script>
   </body>

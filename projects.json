@@ -1,4 +1,8 @@
 {
+  "siteNotice": {
+    "enabled": true,
+    "preset": "incomplete-untrusted-sidebar"
+  },
   "skills": [
     {
       "name": "Python",
