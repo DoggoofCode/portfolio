@@ -6,11 +6,15 @@
   "skills": [
     {
       "name": "Python",
-      "summary": "Primary language for model development, data preparation, and API integration. I use typed, modular code to keep ML workflows maintainable."
+      "summary": "Primary language for model development, data preparation, and other project. I use typed, modular code to keep ML workflows maintainable."
     },
     {
-      "name": "PyTorch",
-      "summary": "Used for building and fine-tuning deep learning models with flexible training loops. I rely on it for rapid experimentation and production-ready checkpointing."
+      "name": "C",
+      "summary": "Used for low-level programming and other projects such as my imageviewer and ligh simulation"
+    },
+    {
+      "name": "Rust",
+      "summary": "Working understanding for more memory safe low level performance, used for ML projects such as a neural network and CNN"
     },
     {
       "name": "TensorFlow",
@@ -18,29 +22,17 @@
     },
     {
       "name": "Scikit-Learn",
-      "summary": "Go-to toolkit for classical ML, feature engineering, and baseline evaluation. I use clear validation protocols to compare models before deep learning escalation."
-    },
-    {
-      "name": "MLOps",
-      "summary": "Designs include model versioning, automated retraining, and performance monitoring. I focus on reliable delivery with clear rollback and observability."
-    },
-    {
-      "name": "Docker",
-      "summary": "Packages ML services into consistent, reproducible runtime environments. I use containerized workflows to reduce deployment drift across environments."
-    },
-    {
-      "name": "FastAPI",
-      "summary": "Builds low-latency model inference APIs with validation and documentation. I use it to expose predictions cleanly to product and analytics teams."
+      "summary": "Go-to toolkit for classical ML, feature engineering, and baseline evaluation. Used mainly for data and model validation to compare models before deep learning."
     },
     {
       "name": "SQL",
-      "summary": "Used for feature extraction, model analysis, and reporting pipelines. I write performant queries to connect raw data with ML decision layers."
+      "summary": "Used for creating local database, as well as user data."
     }
   ],
   "featuredProjects": [
     {
-      "title": "Demand Forecasting Engine",
-      "description": "Time-series forecasting pipeline improving monthly inventory planning with automated retraining.",
+      "title": "Automated Blog Posts",
+      "description": "Working with my local spa to create automated blog posts in their prefered writing style.",
       "linkLabel": "View details",
       "mainImage": "https://picsum.photos/seed/forecasting-cover/1800/1100",
       "details": [
