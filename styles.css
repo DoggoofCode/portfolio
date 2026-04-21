@@ -119,6 +119,51 @@ body {
   line-height: 0.94;
   letter-spacing: -0.02em;
   text-wrap: balance;
+  position: relative;
+}
+
+.hero-click-hint {
+  position: absolute;
+  margin: 0;
+  font-family: "Segoe Script", "Brush Script MT", "Lucida Handwriting", cursive;
+  font-size: clamp(1.12rem, 2.05vw, 1.52rem);
+  letter-spacing: 0.02em;
+  color: rgb(17 17 17 / 74%);
+  display: block;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.hero-click-hint::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  font-size: 1.05em;
+  color: rgb(17 17 17 / 60%);
+  transform: translateY(-50%);
+}
+
+.hero-click-hint--left {
+  right: calc(100% + 0.95rem);
+  top: 39%;
+  transform: translateY(-50%) rotate(-9deg);
+  color: rgb(17 17 17 / 68%);
+}
+
+.hero-click-hint--left::after {
+  content: "↘";
+  right: -1.05em;
+}
+
+.hero-click-hint--right {
+  left: calc(100% + 0.85rem);
+  top: 67%;
+  transform: translateY(-50%) rotate(-4deg);
+}
+
+.hero-click-hint--right::after {
+  content: "↙";
+  left: -1.1em;
 }
 
 .hero-word {
@@ -137,7 +182,45 @@ body {
 .hero-premium.is-ready .hero-word:nth-child(3) { animation-delay: 0.14s; }
 .hero-premium.is-ready .hero-word:nth-child(4) { animation-delay: 0.2s; }
 .hero-premium.is-ready .hero-word:nth-child(5) { animation-delay: 0.26s; }
-.hero-premium.is-ready .hero-word:nth-child(6) { animation-delay: 0.32s; }
+
+.hero-word--interactive {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.08em;
+  margin: 0 -0.08em;
+  cursor: pointer;
+  color: rgb(17 17 17 / 96%);
+  text-decoration: underline;
+  text-decoration-color: rgb(17 17 17 / 30%);
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.11em;
+  transition: color 0.22s ease, text-decoration-color 0.22s ease;
+}
+
+.hero-word--interactive::after {
+  content: attr(data-script);
+  position: absolute;
+  inset: 0;
+  font-family: "Segoe Script", "Brush Script MT", "Lucida Handwriting", cursive;
+  font-style: italic;
+  color: #111;
+  white-space: nowrap;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.34s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+.hero-word--interactive:hover,
+.hero-word--interactive:focus-visible {
+  color: rgb(17 17 17 / 14%);
+  text-decoration-color: rgb(17 17 17 / 52%);
+}
+
+.hero-word--interactive:hover::after,
+.hero-word--interactive:focus-visible::after {
+  clip-path: inset(0 0 0 0);
+}
 
 @keyframes hero-word-reveal {
   to {
@@ -448,6 +531,8 @@ h2 {
   .skills-row__line,
   .skills-row__content,
   .skills-row__desc,
+  .hero-word--interactive,
+  .hero-word--interactive::after,
   .modal-overlay,
   .modal-card,
   .projects-carousel__track,

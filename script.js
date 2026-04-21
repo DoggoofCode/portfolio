@@ -51,6 +51,20 @@ const NOTICE_PRESETS = {
   },
 };
 
+function normalizeImageSource(value) {
+  if (typeof value !== "string") {
+    return "";
+  }
+  const trimmed = value.trim();
+  if (!trimmed) {
+    return "";
+  }
+  if (/^data:/i.test(trimmed) || /^blob:/i.test(trimmed)) {
+    return trimmed;
+  }
+  return encodeURI(trimmed.replace(/\\/g, "/"));
+}
+
 function openModal(modalElement) {
   const existingTimer = modalTimers.get(modalElement);
   if (existingTimer) {
@@ -215,11 +229,14 @@ function renderFeaturedProjects(featuredProjects, otherCard) {
         const description = project.description?.trim() ||
           fallbackProjectDescription(title, index);
         const linkLabel = project.linkLabel || "View details";
+        const mainImage = normalizeImageSource(
+          project.mainImage || project.images?.[0] || ""
+        );
         return `
         <article class="project-card project-card--featured">
           <img
             class="project-card__main-image"
-            src="${project.mainImage || project.images?.[0] || ""}"
+            src="${mainImage}"
             alt="${title} main image"
             loading="lazy"
           />
@@ -291,9 +308,10 @@ function renderOtherProjects(otherProjects) {
         const title = project.title || `Project ${index + 1}`;
         const description = project.description?.trim() ||
           fallbackProjectDescription(title, index + 2);
+        const image = normalizeImageSource(project.image || "");
         return `
         <article class="other-card">
-          <img src="${project.image}" alt="${title}" loading="lazy" />
+          <img src="${image}" alt="${title}" loading="lazy" />
           <div class="other-card-body">
             <h3>${title}</h3>
             <p>${description}</p>
@@ -337,6 +355,7 @@ function openFeaturedProject(index) {
       const detailText = details[slideIndex] ||
         fallbackProjectDetail(projectTitle, projectDescription, slideIndex);
       const reverseClass = slideIndex % 2 === 1 ? " is-reverse" : "";
+      const normalizedImageUrl = normalizeImageSource(imageUrl);
       return `
         <article class="featured-detail-item${reverseClass}">
           <div class="featured-detail-item__copy">
@@ -344,7 +363,7 @@ function openFeaturedProject(index) {
           </div>
           <div class="featured-detail-item__media">
             <img
-              src="${imageUrl}"
+              src="${normalizedImageUrl}"
               alt="${projectTitle} image ${slideIndex + 1}"
               loading="lazy"
             />
