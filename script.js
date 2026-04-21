@@ -10,15 +10,6 @@ const closeFeaturedButton = document.querySelector("#close-featured-project");
 const featuredProjectTitle = document.querySelector("#featured-project-title");
 const featuredProjectCopy = document.querySelector("#featured-project-copy");
 const featuredProjectImages = document.querySelector("#featured-project-images");
-const integrityNoticeModal = document.querySelector("#integrity-notice-modal");
-const closeIntegrityNoticeButton = document.querySelector(
-  "#close-integrity-notice"
-);
-const acknowledgeIntegrityNoticeButton = document.querySelector(
-  "#acknowledge-integrity-notice"
-);
-const integrityNoticeTitle = document.querySelector("#integrity-notice-title");
-const integrityNoticeCopy = document.querySelector("#integrity-notice-copy");
 const entryPreloader = document.querySelector("#entry-preloader");
 const hero = document.querySelector("#hero");
 const heroContent = document.querySelector(".hero-premium__content");
@@ -43,13 +34,6 @@ let entrySequenceCompleted = false;
 let entrySequenceTimeoutId = null;
 const MODAL_ANIMATION_MS = 220;
 const modalTimers = new WeakMap();
-const NOTICE_PRESETS = {
-  "incomplete-untrusted-sidebar": {
-    title: "Portfolio in progress",
-    message:
-      "This site is still incomplete. Please do not trust the information shown here, including any content in the side navigation.",
-  },
-};
 
 function normalizeImageSource(value) {
   if (typeof value !== "string") {
@@ -738,23 +722,6 @@ async function loadPortfolioData() {
   return response.json();
 }
 
-function maybeShowSiteNotice(siteNoticeConfig) {
-  if (!integrityNoticeModal || !siteNoticeConfig?.enabled) {
-    return;
-  }
-
-  const presetKey =
-    siteNoticeConfig.preset in NOTICE_PRESETS
-      ? siteNoticeConfig.preset
-      : "incomplete-untrusted-sidebar";
-  const preset = NOTICE_PRESETS[presetKey];
-
-  integrityNoticeTitle.textContent = siteNoticeConfig.title?.trim() || preset.title;
-  integrityNoticeCopy.textContent =
-    siteNoticeConfig.message?.trim() || preset.message;
-  openModal(integrityNoticeModal);
-}
-
 async function init() {
   entrySequenceTimeoutId = setTimeout(completeEntrySequence, 1600);
   window.addEventListener("load", completeEntrySequence, { once: true });
@@ -771,7 +738,7 @@ async function init() {
     setupProjectsCarousel();
     setupChapterNavigation();
     setupSectionReveals();
-    maybeShowSiteNotice(data.siteNotice);
+    window.SitewidePopups?.showSiteNotice(data.siteNotice);
   } catch (error) {
     skillsList.innerHTML = "<span>Unable to load skills</span>";
     projectGrid.innerHTML = "<p>Unable to load projects data.</p>";
@@ -788,14 +755,8 @@ closeButton.addEventListener("click", () => closeModal(otherProjectsModal));
 closeFeaturedButton.addEventListener("click", () =>
   closeModal(featuredProjectModal)
 );
-closeIntegrityNoticeButton?.addEventListener("click", () =>
-  closeModal(integrityNoticeModal)
-);
-acknowledgeIntegrityNoticeButton?.addEventListener("click", () =>
-  closeModal(integrityNoticeModal)
-);
 
-[otherProjectsModal, featuredProjectModal, integrityNoticeModal].forEach((currentModal) => {
+[otherProjectsModal, featuredProjectModal].forEach((currentModal) => {
   if (!currentModal) {
     return;
   }
@@ -807,11 +768,6 @@ acknowledgeIntegrityNoticeButton?.addEventListener("click", () =>
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && integrityNoticeModal && !integrityNoticeModal.hidden) {
-    closeModal(integrityNoticeModal);
-    return;
-  }
-
   if (!featuredProjectModal.hidden) {
     if (event.key === "Escape") {
       closeModal(featuredProjectModal);
@@ -822,6 +778,11 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !otherProjectsModal.hidden) {
     closeModal(otherProjectsModal);
   }
+});
+
+window.SitewidePopups?.init({
+  openModal,
+  closeModal,
 });
 
 init();
