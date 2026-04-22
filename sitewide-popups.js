@@ -145,7 +145,7 @@
     }, 220);
   }
 
-  function submitFeedback(event) {
+  async function submitFeedback(event) {
     event.preventDefault();
     if (!feedbackModal || !feedbackInput || !feedbackCard || isFeedbackSending) {
       return;
@@ -163,15 +163,32 @@
       submittedAt: new Date().toISOString(),
     };
 
-    console.log("[feedback][dummy-send]", payload);
-
     feedbackCard.classList.add("is-sending");
-    window.setTimeout(() => {
+    try {
+      const response = await fetch("/api/feedback", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+      if (!response.ok) {
+        throw new Error(`Could not submit feedback (${response.status})`);
+      }
+
+      await new Promise((resolve) => {
+        window.setTimeout(resolve, 1080);
+      });
       feedbackCard.classList.remove("is-sending");
       feedbackInput.value = "";
       closeModal(feedbackModal);
       isFeedbackSending = false;
-    }, 1080);
+    } catch (error) {
+      feedbackCard.classList.remove("is-sending");
+      isFeedbackSending = false;
+      console.error("[feedback][send-failed]", error);
+      window.alert("Unable to submit feedback right now. Please try again.");
+    }
   }
 
   function bindHandlers() {
