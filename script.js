@@ -1,3 +1,6 @@
+import "./sitewide-popups.js";
+import "./sphere-background.js";
+
 const skillsList = document.querySelector("#skills-list");
 const projectGrid = document.querySelector("#project-grid");
 const closeButton = document.querySelector("#close-other-projects");
@@ -714,7 +717,7 @@ function setupChapterNavigation() {
 }
 
 async function loadPortfolioData() {
-  const response = await fetch("projects.json", { cache: "no-store" });
+  const response = await fetch("/projects.json", { cache: "no-store" });
   if (!response.ok) {
     throw new Error(`Could not load projects.json (${response.status})`);
   }
